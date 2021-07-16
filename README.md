@@ -2,11 +2,11 @@
 https://github.com/timtinlong/BonVoyage2021
 
 ## Windows Environment Setup (Anaconda)
-$ conda create --name BonVoyage2021 python=3.9
-$ conda update -n base -c defaults conda
-$ conda activate BonVoyage2021
+$ conda create --name BonVoyage2021 python=3.9  
+$ conda update -n base -c defaults conda  
+$ conda activate BonVoyage2021  
 
 ## Install Relevant Libraries
-https://stackoverflow.com/questions/11087795/whitespace-gone-from-pdf-extraction-and-strange-word-interpretation/11087993
+https://stackoverflow.com/questions/11087795/whitespace-gone-from-pdf-extraction-and-strange-word-interpretation/11087993  
 $ conda install pdfminer
 
