@@ -1,6 +1,7 @@
 # import the necessary packages
 import os
 from tensorflow.keras.applications import VGG16
+from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
@@ -186,7 +187,7 @@ testTargets = {
 # train the network for bounding box regression
 print("[INFO] training bounding box regressor...")
 
-CB = tf.keras.callbacks.ModelCheckpoint(
+CB = ModelCheckpoint(
     MODEL_PATH,
     monitor="val_loss",
     verbose=1,
