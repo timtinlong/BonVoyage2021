@@ -185,16 +185,28 @@ testTargets = {
 
 # train the network for bounding box regression
 print("[INFO] training bounding box regressor...")
+
+CB = tf.keras.callbacks.ModelCheckpoint(
+    MODEL_PATH,
+    monitor="val_loss",
+    verbose=1,
+    save_best_only=True,
+    save_weights_only=False,
+    mode="auto",
+)
+
 H = model.fit(
 	trainImages, trainTargets,
 	validation_data=(testImages, testTargets),
 	batch_size=BATCH_SIZE,
 	epochs=NUM_EPOCHS,
-	verbose=1)
+	verbose=1,
+    callbacks=[CB]
+    )
 
-# serialize the model to disk
-print("[INFO] saving object detector model...")
-model.save(MODEL_PATH, save_format="h5")
+# # serialize the model to disk
+# print("[INFO] saving object detector model...")
+# model.save(MODEL_PATH, save_format="h5")
 
 
 # serialize the label binarizer to disk
